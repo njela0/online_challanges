@@ -50,9 +50,15 @@ def how_much_water(bricks_array: list) -> int:
     for element in bricks_array_prepared:
 
         while index < len(bricks_array_prepared) -1 and element >= bricks_array_prepared[index+1]:
-            water_bricks_array.append(element - bricks_array_prepared[index+1])
-            index += 1
-            print(f"added to water_bricks_array: {water_bricks_array}")
+            if element <= max(bricks_array_prepared[index+1:]):
+                water_bricks_array.append(element - bricks_array_prepared[index+1])
+                index += 1
+                print(f"added to water_bricks_array: {water_bricks_array}")
+            elif element > max(bricks_array_prepared[index+1:]):
+                water_bricks_array.append(max(bricks_array_prepared[index+1:]) - bricks_array_prepared[index+1])
+                index += 1
+                print(f"added to water_bricks_array: {water_bricks_array}")
+
         else:
             continue
 
@@ -61,4 +67,4 @@ def how_much_water(bricks_array: list) -> int:
     amount_of_water_bricks = sum([x for x in water_bricks_array if x > 0])
     return amount_of_water_bricks
 
-print(how_much_water(bricksArray3))
+print(how_much_water(bricksArray9))

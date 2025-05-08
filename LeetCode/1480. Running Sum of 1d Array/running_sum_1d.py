@@ -1,9 +1,5 @@
 class Solution(object):
     def runningSum(self, nums: list[int]) -> list[int]:
-        """
-        :type nums: List[int]
-        :rtype: List[int]
-        """
 
         running_sum_array = []
 

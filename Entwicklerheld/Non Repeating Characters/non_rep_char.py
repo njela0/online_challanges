@@ -2,18 +2,24 @@ def find_first_non_repeated_char(sequence: str):
 
     first_non_repeated_char = ""
 
-    for char in sequence:
-        count_char = sequence.lower().count(char.lower())
+    if not sequence:
+        first_non_repeated_char = None
 
-        if not sequence:
-            return None
+    else:
+        for index, char in enumerate(sequence):
+            count_char = sequence.lower().count(char.lower())
 
-        elif count_char == 1:
-            print(f"first non-repeated character: {char}")
+            if count_char == 1:
+                first_non_repeated_char = char
+                break
+            elif count_char > 1:
+                if index < len(sequence) - 1:
+                    continue
+                else:
+                    first_non_repeated_char = None
+                    break
 
-            first_non_repeated_char = char
-            return first_non_repeated_char
-
+    return first_non_repeated_char
 
 seq1 = "Entwicklerheld"
 seq2 = "abcabc"

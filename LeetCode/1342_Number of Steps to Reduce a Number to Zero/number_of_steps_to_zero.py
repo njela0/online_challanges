@@ -3,7 +3,6 @@
 def numberOfSteps(num: int) -> int:
 
     nr_of_steps = 0
-
     number = num
 
     while number > 0:

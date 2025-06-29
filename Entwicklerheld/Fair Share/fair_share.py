@@ -33,12 +33,12 @@ def calculate_shares(shares_dict, total_payment, number_of_participants):
     return shares_list
 
 csv_filename = "data-1-1.csv"
-shares_dict, total, number_of_participants = sum_up_payments(csv_filename)
 
-print(number_of_participants)
-for key, value in shares_dict.items():
-    print(key, value)
+def calculate_refunds(csv_filename):
 
-shares_list = calculate_shares(shares_dict, total, number_of_participants)
+    shares_dict, total, number_of_participants = sum_up_payments(csv_filename)
+    shares_list = calculate_shares(shares_dict, total, number_of_participants)
 
-print(shares_list)
+    return shares_list
+
+print(calculate_refunds(csv_filename))

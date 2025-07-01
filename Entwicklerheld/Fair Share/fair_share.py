@@ -25,9 +25,9 @@ def calculate_shares(shares_dict, total_payment, number_of_participants):
 
     for key, value in shares_dict.items():
         person_shares_dict = {}
-        person_shares_dict["people"] = key
+        person_shares_dict["person"] = key
         person_shares_dict["total"] = value
-        person_shares_dict["refund"] = round(((total_payment / number_of_participants) - value), 2)
+        person_shares_dict["refund"] = round(((total_payment / number_of_participants) - value), 2) * -1
         shares_list.append(person_shares_dict)
 
     return shares_list

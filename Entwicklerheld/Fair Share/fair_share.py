@@ -21,6 +21,7 @@ def sum_up_payments(csv_filename):
 
 
 def calculate_shares(shares_dict, total_payment, number_of_participants):
+    """Takes the return from the sum_up_payments function and returns a list with the shares per person"""
     shares_list = []
 
     for key, value in shares_dict.items():
@@ -35,10 +36,10 @@ def calculate_shares(shares_dict, total_payment, number_of_participants):
 csv_filename = "data-1-1.csv"
 
 def calculate_refunds(csv_filename):
+    """Takes the csv-filename as input, executes the relevant functions and returns the shares_list"""
 
     shares_dict, total, number_of_participants = sum_up_payments(csv_filename)
-    shares_list = calculate_shares(shares_dict, total, number_of_participants)
 
-    return shares_list
+    return calculate_shares(shares_dict, total, number_of_participants)
 
 print(calculate_refunds(csv_filename))
